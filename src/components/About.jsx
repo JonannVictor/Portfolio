@@ -1,26 +1,17 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-const About = () => {
+export default function About() {
   return (
-    <motion.section
-      id="about"
-      className="py-20 px-6 bg-zinc-100 dark:bg-zinc-800"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6">
-          Sobre Mim
-        </h2>
-        <p className="text-zinc-700 dark:text-zinc-300 text-lg">
-          Olá! Me chamo Jonann Victor, um desenvolvedor front-end apaixonado por transformar ideias em interfaces incríveis. 
-          Tenho experiência com tecnologias como React, Tailwind CSS e JavaScript, buscando sempre criar experiências modernas, acessíveis e envolventes.
-        </p>
-      </div>
-    </motion.section>
+    <section id="about" className="h-screen flex items-center justify-center bg-gray-950 pt-20">
+      <motion.div 
+        className="text-center"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-5xl font-bold mb-4">Olá, eu sou Jonann</h2>
+        <p className="text-xl text-gray-400">Desenvolvedor Front-End apaixonado por criar interfaces incríveis.</p>
+      </motion.div>
+    </section>
   );
-};
-
-export default About;
+}

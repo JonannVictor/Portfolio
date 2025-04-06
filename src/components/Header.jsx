@@ -1,23 +1,21 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-const Header = () => {
+export default function Header() {
   return (
-    <motion.header
-      className="w-full py-4 px-6 bg-white dark:bg-zinc-800 shadow-md sticky top-0 z-50"
-      initial={{ y: -60, opacity: 0 }}
+    <motion.nav 
+      className="bg-gray-900 text-white p-4 shadow-md fixed top-0 w-full z-10"
+      initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 70 }}
+      transition={{ duration: 0.7 }}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">Jonann Victor</h1>
-        <nav className="space-x-6 text-sm md:text-base">
-          <a href="#hero" className="hover:text-indigo-500 transition-colors">Início</a>
-          <a href="#projects" className="hover:text-indigo-500 transition-colors">Projetos</a>
-          <a href="#contact" className="hover:text-indigo-500 transition-colors">Contato</a>
-        </nav>
+      <div className="container mx-auto flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Jonann Victor</h1>
+        <ul className="flex space-x-4">
+          <li><a href="#about" className="hover:text-blue-400">Sobre</a></li>
+          <li><a href="#projects" className="hover:text-blue-400">Projetos</a></li>
+          <li><a href="#contact" className="hover:text-blue-400">Contato</a></li>
+        </ul>
       </div>
-    </motion.header>
+    </motion.nav>
   );
-};
-
-export default Header;
+}
