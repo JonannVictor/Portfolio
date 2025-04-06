@@ -1,0 +1,1 @@
+// Conteúdo do arquivo Header.jsx (exemplo)

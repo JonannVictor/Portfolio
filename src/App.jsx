@@ -1,58 +1,45 @@
-import React from 'react'
-import { Card, CardContent } from './components/ui/card'
-import { Button } from './components/ui/button'
-import { ModeToggle } from './components/ModeToggle'
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
+import Footer from "./components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const App = () => {
+function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
-    <div className="font-sans min-h-screen bg-background text-foreground transition-colors">
-      <nav className="bg-gray-900 text-white p-4 flex justify-between items-center">
-        <div className="text-xl font-bold">Meu Portfólio</div>
-        <div className="flex items-center space-x-4">
-          <a href="#home" className="hover:text-blue-400">Home</a>
-          <a href="#about" className="hover:text-blue-400">Sobre Mim</a>
-          <a href="#projects" className="hover:text-blue-400">Projetos</a>
-          <a href="#contact" className="hover:text-blue-400">Contato</a>
-          <ModeToggle />
-        </div>
-      </nav>
+    <div className="bg-gray-100 text-gray-800 dark:bg-zinc-900 dark:text-white transition-all duration-500">
+      <Header />
 
-      <section id="home" className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-800 to-gray-900 text-white">
-        <h1 className="text-5xl font-bold mb-4">Bem-vindo ao Meu Portfólio</h1>
-        <p className="text-xl">Desenvolvedor Front-End criando experiências incríveis na web.</p>
-      </section>
+      <main className="px-4 md:px-8 lg:px-16">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Hero />
+        </motion.section>
 
-      <section id="about" className="p-8 bg-white dark:bg-gray-900 dark:text-white">
-        <h2 className="text-4xl font-bold mb-4">Sobre Mim</h2>
-        <p className="text-lg">Sou um dev Front-End apaixonado por React e Tailwind CSS.</p>
-      </section>
+        <motion.section
+          id="projects"
+          className="my-24"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Projects />
+        </motion.section>
+      </main>
 
-      <section id="projects" className="p-8 bg-gray-100 dark:bg-gray-800 dark:text-white">
-        <h2 className="text-4xl font-bold mb-8">Projetos</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((project) => (
-            <Card key={project} className="bg-white dark:bg-gray-700 text-black dark:text-white shadow-md rounded-2xl">
-              <CardContent className="p-4">
-                <h3 className="text-xl font-bold mb-2">Projeto {project}</h3>
-                <p className="mb-4">Descrição do projeto {project}.</p>
-                <Button>Ver Projeto</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="p-8 bg-white dark:bg-gray-900 dark:text-white">
-        <h2 className="text-4xl font-bold mb-4">Contato</h2>
-        <form className="space-y-4">
-          <input type="text" placeholder="Nome" className="border p-2 rounded w-full bg-white dark:bg-gray-800 dark:text-white" />
-          <input type="email" placeholder="Email" className="border p-2 rounded w-full bg-white dark:bg-gray-800 dark:text-white" />
-          <textarea placeholder="Mensagem" className="border p-2 rounded w-full bg-white dark:bg-gray-800 dark:text-white" />
-          <Button>Enviar</Button>
-        </form>
-      </section>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
