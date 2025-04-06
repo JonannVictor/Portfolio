@@ -1,29 +1,19 @@
-import ProjectCard from './ProjectCard';
+import { motion } from 'framer-motion';
 
-const projetos = [
-  {
-    nome: 'Landing Page Academia',
-    desc: 'Landing page feita para o Instituto Ev usando HTML, CSS e JS.',
-    link: 'https://github.com/JonannVictor/Projeto-Cliente_InstitutoEv'
-  },
-  {
-    nome: 'Calculadora JS',
-    desc: 'Projeto de calculadora simples utilizando JavaScript.',
-    link: 'https://github.com/JonannVictor/calculadora'
-  }
-];
-
-export default function Projects() {
+export default function About() {
   return (
-    <section id="projects" className="py-20 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Meus Projetos</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {projetos.map((p, i) => (
-            <ProjectCard key={i} {...p} />
-          ))}
-        </div>
-      </div>
+    <section id="about" className="h-screen flex items-center justify-center bg-gray-100 pt-20">
+      <motion.div 
+        className="text-center"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7 }}
+      >
+        <h2 className="text-5xl font-bold mb-4 text-gray-900">Olá, eu sou Jonann</h2>
+        <p className="text-xl text-gray-700">
+          Desenvolvedor Front-End apaixonado por criar interfaces incríveis.
+        </p>
+      </motion.div>
     </section>
   );
 }

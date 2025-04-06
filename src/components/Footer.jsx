@@ -4,4 +4,4 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} Jonann Victor. Todos os direitos reservados.</p>
       </footer>
     );
-  }
+}  
