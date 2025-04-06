@@ -16,7 +16,7 @@ export default function About() {
           Olá, eu sou Jonann
         </h2>
         <p className="text-lg md:text-xl text-gray-700">
-          Desenvolvedor Front-End apaixonado por criar interfaces incríveis.
+          Desenvolvedor Front-End 
         </p>
       </motion.div>
     </section>
