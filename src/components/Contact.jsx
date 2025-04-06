@@ -20,14 +20,14 @@ const Contact = () => {
         </p>
         <div className="flex justify-center gap-6">
           <a
-            href="mailto:jonannvictor@gmail.com"
+            href="mailto:jonannmoreiravc@gmail.com"
             className="text-zinc-700 hover:text-blue-600 transition"
             aria-label="Email"
           >
             <Mail size={28} />
           </a>
           <a
-            href="https://www.linkedin.com/in/jonannvictor"
+            href="https://www.linkedin.com/in/jonann-victor-moreira-cardoso-554137285/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-700 hover:text-blue-600 transition"
